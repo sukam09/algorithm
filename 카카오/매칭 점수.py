@@ -1,6 +1,41 @@
+import re
+
 def solution(word, pages):
-    ans = 0
-    return ans
+    score = {}
+    url_idx = {}
+    word = word.lower()
 
+    for idx, page in enumerate(pages):
+        score[idx] = {}
+        score[idx]['link'] = []
+        basic = 0
 
-print(solution('blind', ["<html lang=\"ko\" xml:lang=\"ko\" xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta property=\"og:url\" content=\"https://a.com\"/>\n</head>  \n<body>\nBlind Lorem Blind ipsum dolor Blind test sit amet, consectetur adipiscing elit. \n<a href=\"https://b.com\"> Link to b </a>\n</body>\n</html>", "<html lang=\"ko\" xml:lang=\"ko\" xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta property=\"og:url\" content=\"https://b.com\"/>\n</head>  \n<body>\nSuspendisse potenti. Vivamus venenatis tellus non turpis bibendum, \n<a href=\"https://a.com\"> Link to a </a>\nblind sed congue urna varius. Suspendisse feugiat nisl ligula, quis malesuada felis hendrerit ut.\n<a href=\"https://c.com\"> Link to c </a>\n</body>\n</html>", "<html lang=\"ko\" xml:lang=\"ko\" xmlns=\"http://www.w3.org/1999/xhtml\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta property=\"og:url\" content=\"https://c.com\"/>\n</head>  \n<body>\nUt condimentum urna at felis sodales rutrum. Sed dapibus cursus diam, non interdum nulla tempor nec. Phasellus rutrum enim at orci consectetu blind\n<a href=\"https://a.com\"> Link to a </a>\n</body>\n</html>"]))
+        for s in re.findall(r'[a-zA-Z]+', page.lower()):
+            if s == word:
+                basic += 1
+        
+        url = re.findall(r'<meta property="og:url" content="https://(\S+)"', page)[0]
+        score[idx]['url'] = url
+
+        link = re.findall(r'<a href="https://(\S+)"', page)
+        for lk in link:
+            score[idx]['link'].append(lk)
+        
+        score[idx]['basic'] = basic
+        score[idx]['lnum'] = len(score[idx]['link'])
+        score[idx]['external'] = 0
+        url_idx[url] = idx
+
+    for idx in score:
+        cur = score[idx]
+        for link in score[idx]['link']:
+            if link in url_idx:
+                target = score[url_idx[link]]
+                target['external'] += cur['basic'] / cur['lnum']
+    
+    res = []
+    for idx in score:
+        cur = score[idx]
+        res.append((cur['basic'] + cur['external'], idx))
+    
+    return sorted(res, key=lambda x: (-x[0], x[1]))[0][1]

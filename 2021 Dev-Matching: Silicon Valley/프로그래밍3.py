@@ -1,7 +1,6 @@
 from collections import deque
 from math import gcd
 
-
 def powersum(w):
     if len(set(w)) == 1:
         return 0

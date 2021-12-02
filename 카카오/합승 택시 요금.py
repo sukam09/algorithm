@@ -1,7 +1,5 @@
 from collections import defaultdict
-from heapq import heappush
-from heapq import heappop
-
+from heapq import heappush, heappop
 
 def dijkstra(n, start, graph):
     h = []
@@ -20,7 +18,6 @@ def dijkstra(n, start, graph):
                 heappush(h, (d + c, e))
     
     return dist
-
 
 def solution(n, a, s, b, fares):
     graph = defaultdict(list)

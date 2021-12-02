@@ -1,6 +1,5 @@
 from collections import defaultdict
 
-
 def solution(rectangles):
     for i in range(len(rectangles)):
         rectangles[i] += [i + 1]

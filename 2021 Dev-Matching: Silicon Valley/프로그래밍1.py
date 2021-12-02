@@ -1,6 +1,5 @@
 from collections import defaultdict
 
-
 def solution(rows, columns, connections, queries):
     graph = defaultdict(dict)
 

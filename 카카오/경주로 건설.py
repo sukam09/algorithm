@@ -1,6 +1,5 @@
 from collections import deque
 
-
 def bfs(board, start_dir):
     n = len(board)
     q = deque([(0, 0, start_dir, 0)])
@@ -18,7 +17,6 @@ def bfs(board, start_dir):
                 cost[nx][ny] = c + next
                 
     return cost[n - 1][n - 1]
-
 
 def solution(board):
     return min(bfs(board, 'R'), bfs(board, 'D'))

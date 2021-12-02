@@ -9,7 +9,6 @@ def invalid(ans):
                 return True
     return False
 
-
 def solution(n, build_frame):
     ans = set()
 

@@ -1,6 +1,5 @@
 from collections import deque
 
-
 def bfs(n, seat_info):
     q = deque()
     vis = [[0] * n for _ in range(n)]
