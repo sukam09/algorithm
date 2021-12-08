@@ -7,7 +7,7 @@ def get_ms(S):
 def solution(lines):
     timeline = []
     candidate = []
-
+    
     for l in lines:
         l = l.split()
         S, T = l[1], eval(l[2][:-1])
@@ -18,13 +18,11 @@ def solution(lines):
         candidate.append(right)
 
     ans = 0
-    candidate.sort()
-    
     for c in candidate:
         wl, wr = c, c + 999
         cnt = 0
         for l, r in timeline:
-            if not ((l < wl and r < wl) or (l > wr and r > wr)):
+            if not (r < wl or l > wr):
                 cnt += 1
         ans = max(cnt, ans)
     
