@@ -25,7 +25,7 @@ def solution(board):
         for mx1, my1, mx2, my2 in mv:
             nx1, ny1, nx2, ny2 = x1 + mx1, y1 + my1, x2 + mx2, y2 + my2
             if 0 <= nx1 < n and 0 <= ny1 < n and 0 <= nx2 < n and 0 <= ny2 < n and not board[nx1][ny1] \
-                and not board[nx2][ny2] and not vis[(nx1, ny1, nx2, ny2)]:
+                            and not board[nx2][ny2] and not vis[(nx1, ny1, nx2, ny2)]:
                 q.append((nx1, ny1, nx2, ny2, ans + 1))
                 vis[(nx1, ny1, nx2, ny2)] = 1
 
@@ -34,6 +34,6 @@ def solution(board):
             nx1, ny1, nx2, ny2 = r
             wx, wy = w
             if 0 <= nx1 < n and 0 <= ny1 < n and 0 <= nx2 < n and 0 <= ny2 < n and not board[nx1][ny1] \
-                and not board[nx2][ny2] and not board[wx][wy] and not vis[(nx1, ny1, nx2, ny2)]:
+                            and not board[nx2][ny2] and not board[wx][wy] and not vis[(nx1, ny1, nx2, ny2)]:
                 q.append((nx1, ny1, nx2, ny2, ans + 1))
                 vis[(nx1, ny1, nx2, ny2)] = 1
