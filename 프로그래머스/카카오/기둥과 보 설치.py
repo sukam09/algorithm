@@ -5,7 +5,7 @@ def invalid(ans):
                 return True
         else:
             if (x, y - 1, 0) not in ans and (x + 1, y - 1, 0) not in ans and ((x - 1, y, 1) not in ans \
-                    or (x + 1, y, 1) not in ans):
+                                        or (x + 1, y, 1) not in ans):
                 return True
     return False
 
