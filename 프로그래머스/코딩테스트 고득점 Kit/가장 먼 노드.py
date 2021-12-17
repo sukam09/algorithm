@@ -1,7 +1,6 @@
 from collections import defaultdict
 from collections import deque
 
-
 def solution(n, edge):
     graph = defaultdict(list)
 
