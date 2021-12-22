@@ -1,5 +1,5 @@
 n = int(input())
-words = list(input() for _ in range(n))
+words = [input() for _ in range(n)]
 words.sort()
 
 ans = 1

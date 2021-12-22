@@ -1,5 +1,4 @@
-from collections import defaultdict
-from collections import deque
+from collections import defaultdict, deque
 
 def solution(n, edge):
     graph = defaultdict(list)
@@ -11,14 +10,14 @@ def solution(n, edge):
     vis = [0] * (n + 1)
     vis[1] = 1
     q = deque([(1, 0)])
-    dist_list = []
+    dist = []
 
     while q:
-        v, dist = q.popleft()
-        dist_list.append(dist)
+        v, d = q.popleft()
+        dist.append(d)
         for nv in graph[v]:
             if not vis[nv]:
-                q.append((nv, dist + 1))
+                q.append((nv, d + 1))
                 vis[nv] = 1
 
-    return dist_list.count(max(dist_list))
+    return dist.count(max(dist))
