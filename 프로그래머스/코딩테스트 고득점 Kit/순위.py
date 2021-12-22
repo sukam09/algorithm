@@ -1,25 +1,25 @@
+from collections import defaultdict
+
 def solution(n, results):
-    graph = [[0] * n for _ in range(n)]
+    wins = defaultdict(set)
+    loses = defaultdict(set)
 
     for winner, loser in results:
-        winner -= 1
-        loser -= 1
-        graph[winner][loser] = 1
-        graph[loser][winner] = -1
-    
-    for me in range(n):
-        wins = [enemy for enemy, res in enumerate(graph[me]) if res == 1]
-        while wins:
-            loser = wins.pop()
-            for enemy, res in enumerate(graph[loser]):
-                if res == 1 and graph[me][enemy] == 0:
-                    graph[me][enemy] = 1
-                    graph[enemy][me] = -1
-                    wins.append(enemy)
-    
+        wins[winner].add(loser)
+        loses[loser].add(winner)
+
+    for i in range(1, n + 1):
+        # 나한테 진 애들은 내가 진 애들한테도 졌음
+        for loser in wins[i]:
+            loses[loser] |= loses[i]
+        
+        # 나를 이긴 애들은 내가 이긴 애들도 이겼음
+        for winner in loses[i]:
+            wins[winner] |= wins[i]
+
     ans = 0
-    for row in graph:
-        if row.count(0) == 1:
+    for i in range(1, n + 1):
+        if len(wins[i]) + len(loses[i]) == n - 1:
             ans += 1
 
     return ans
