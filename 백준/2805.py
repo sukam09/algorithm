@@ -5,7 +5,8 @@ ans = 0
 
 while left <= right:
     mid = (left + right) // 2
-    cutted_trees = sum(tree - mid if tree >= mid else 0 for tree in trees)
+    cutted_trees = sum(tree - mid for tree in trees if tree >= mid)
+    
     if cutted_trees < m:
         right = mid - 1
     else:
