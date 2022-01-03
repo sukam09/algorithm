@@ -1,18 +1,14 @@
 from itertools import combinations
-from math import sqrt
 
 def prime(n):
-    if n == 1:
-        return False
-    for i in range(2, int(sqrt(n))+1):
+    for i in range(2, int(n ** 0.5) + 1):
         if n % i == 0:
             return False
     return True
 
 def solution(nums):
     ans = 0
-    c = combinations(nums, 3)
-    for x in c:
-        if prime(sum(x)):
+    for c in combinations(nums, 3):
+        if prime(sum(c)):
             ans += 1
     return ans

@@ -3,7 +3,7 @@ def solution(n, m, x, y, queries):
     sx, ex = x, x
     sy, ey = y, y
 
-    # 쿼리를 역으로 순회하면서 공의 위치가 될 수 있는 후보군을 직사각형의 형태로 구상.
+    # 쿼리를 역으로 순회하면서 공의 위치가 될 수 있는 후보군을 직사각형의 형태로 구성.
     for i in range(len(queries) - 1, -1, -1):
         cmd, d = queries[i]
         
