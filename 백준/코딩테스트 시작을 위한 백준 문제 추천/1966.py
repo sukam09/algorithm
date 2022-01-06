@@ -1,3 +1,9 @@
+"""
+1. q는 slicing할 수 없음에 주의
+2. q[0]가 아니고 q[0][0]과 비교해야 함에 주의
+3. 비교할 때 q에 있는 순서쌍 단위로 비교하면 i 때문에 틀림(즉, heap 하나만으로는 풀 수 없음)
+"""
+
 from collections import deque
 
 t = int(input())
