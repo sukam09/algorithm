@@ -1,18 +1,3 @@
-def chkh(x, y):
-    if oob(x, y + 1) or board[x][y + 1]:
-        return False
-    return True
-
-def chkv(x, y):
-    if oob(x + 1, y) or board[x + 1][y]:
-        return False
-    return True
-
-def chkd(x, y):
-    if oob(x + 1, y + 1) or board[x][y + 1] or board[x + 1][y] or board[x + 1][y + 1]:
-        return False
-    return True
-
 def sim(x, y, c):
     global ans
     if (x, y) == (n - 1, n - 1):
@@ -40,7 +25,12 @@ def sim(x, y, c):
 n = int(input())
 board = [list(map(int, input().split())) for _ in range(n)]
 ans = 0
+
 oob = lambda x, y: x < 0 or x >= n or y < 0 or y >= n
+chkh = lambda x, y: not(oob(x, y + 1) or board[x][y + 1])
+chkv = lambda x, y: not(oob(x + 1, y) or board[x + 1][y])
+chkd = lambda x, y: not(oob(x + 1, y + 1) or board[x][y + 1] or board[x + 1][y] or board[x + 1][y + 1])
+
 if board[n - 1][n - 1]:
     print(0)
 else:
