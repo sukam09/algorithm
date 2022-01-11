@@ -3,7 +3,7 @@ from collections import deque
 input = stdin.readline
 
 n, k = map(int, input().split())
-vis = [0] * 100002
+vis = [0] * 100005
 oob = lambda x: x < 0 or x > 100000
 que = deque([(n, 0)])
 vis[n] = 1

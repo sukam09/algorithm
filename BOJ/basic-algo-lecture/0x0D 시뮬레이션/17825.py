@@ -25,10 +25,10 @@ def sim(idx, tot, locs):
         if loc != 32 and loc in locs:
             continue
         
-        temp = locs[i]
+        tmp = locs[i]
         locs[i] = loc
         sim(idx + 1, tot + scores[loc], locs)
-        locs[i] = temp
+        locs[i] = tmp
 
 dices = list(map(int, input().split()))
 locs = [0] * 4

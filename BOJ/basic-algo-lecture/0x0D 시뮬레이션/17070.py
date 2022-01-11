@@ -5,6 +5,8 @@ def sim(x, y, c):
     global ans
     if (x, y) == (n - 1, n - 1):
         ans += 1
+        print(x, y, c)
+        print(ans)
         return
     
     if c == 0:
