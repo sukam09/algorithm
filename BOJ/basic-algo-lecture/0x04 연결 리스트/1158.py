@@ -11,4 +11,4 @@ for _ in range(n):
         q.rotate(-1)
     ans.append(q.popleft())
 
-print("<" + ', '.join(map(str, ans)) + ">")
+print('<' + ', '.join(map(str, ans)) + '>')
