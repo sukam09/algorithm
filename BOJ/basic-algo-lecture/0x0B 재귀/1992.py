@@ -2,6 +2,7 @@ import sys
 input = lambda: sys.stdin.readline().rstrip()
 mis = lambda: map(int, input().split())
 ii = lambda: int(input())
+sys.stdin = open('input.txt', 'r')
 
 def chk(x, y, n):
     cur = board[x][y]
