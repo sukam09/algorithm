@@ -1,0 +1,1 @@
+print(''.join(list(map(lambda c: c.upper() if c.islower() else c.lower(), input()))))
