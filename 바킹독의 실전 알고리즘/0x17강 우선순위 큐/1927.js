@@ -8,12 +8,12 @@ class Heap {
     this.heap[++this.size] = num;
     let index = this.size;
     while (index > 1) {
-      const parent = Math.floor(index / 2);
-      if (this.heap[parent] <= this.heap[index]) {
+      const parentIndex = Math.floor(index / 2);
+      if (this.heap[parentIndex] <= this.heap[index]) {
         break;
       }
-      this.swap(parent, index);
-      index = parent;
+      this.swap(parentIndex, index);
+      index = parentIndex;
     }
   }
 

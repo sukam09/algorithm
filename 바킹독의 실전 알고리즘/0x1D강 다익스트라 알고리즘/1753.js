@@ -59,10 +59,10 @@ const dijkstra = () => {
   while (!heap.isEmpty()) {
     const [curDist, curNode] = heap.top();
     heap.pop();
-    if (dists[curNode] != curDist) {
+    if (dists[curNode] !== curDist) {
       continue;
     }
-    for (let [nextDist, nextNode] of graph[curNode]) {
+    for (const [nextDist, nextNode] of graph[curNode]) {
       if (dists[nextNode] <= dists[curNode] + nextDist) {
         continue;
       }
@@ -81,12 +81,11 @@ const [v, e] = input[0].split(' ').map((x) => +x);
 const k = parseInt(input[1]);
 const dists = Array(v + 1).fill(Infinity);
 
-// 아래 과정 대신 const graph = Array(v + 1).fill([])를 하면 push()할때마다 Array의 모든 element에서 삽입이 일어남 why?
-// 얕은 복사가 일어나기 때문?
 const graph = [];
 for (let i = 0; i < v + 1; i++) {
   graph.push([]);
 }
+
 for (let i = 2; i < 2 + e; i++) {
   const [start, end, dist] = input[i].split(' ').map((x) => +x);
   graph[start].push([dist, end]);
