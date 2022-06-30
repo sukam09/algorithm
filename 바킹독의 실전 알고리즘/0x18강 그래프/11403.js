@@ -11,7 +11,7 @@ for (let i = 0; i < n; i++) {
 }
 
 for (let i = 0; i < n; i++) {
-  const line = input[i + 1].split(' ').map((x) => +x);
+  const line = input[i + 1].split(' ').map(Number);
   for (let j = 0; j < n; j++) {
     if (line[j] === 1) {
       graph[i].push(j);

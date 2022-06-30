@@ -1,6 +1,6 @@
 class Heap {
   constructor(n) {
-    this.heap = Array(n + 1).fill(0); // size is n + 1 because of dummy node
+    this.heap = Array(n + 1).fill(0);
     this.size = 0;
   }
 
@@ -57,7 +57,7 @@ const input = require('fs')
   .toString()
   .trim()
   .split('\n')
-  .map((x) => +x);
+  .map(Number);
 const n = input[0];
 const heap = new Heap(n);
 let answer = '';

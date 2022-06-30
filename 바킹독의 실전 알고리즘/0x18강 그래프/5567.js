@@ -1,17 +1,17 @@
-const [n, m, ...arr] = require('fs')
+const [n, m, ...input] = require('fs')
   .readFileSync('/dev/stdin')
   .toString()
   .trim()
   .split(/\s/)
-  .map((x) => +x);
+  .map(Number);
 
 const graph = Array(n + 1);
 for (let i = 0; i < n + 1; i++) {
   graph[i] = [];
 }
 
-for (let i = 0; i < arr.length; i += 2) {
-  const [a, b] = [arr[i], arr[i + 1]];
+for (let i = 0; i < input.length; i += 2) {
+  const [a, b] = [input[i], input[i + 1]];
   graph[a].push(b);
   graph[b].push(a);
 }

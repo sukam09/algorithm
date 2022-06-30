@@ -77,7 +77,7 @@ const input = require('fs')
   .toString()
   .trim()
   .split('\n');
-const [v, e] = input[0].split(' ').map((x) => +x);
+const [v, e] = input[0].split(' ').map(Number);
 const k = parseInt(input[1]);
 const dists = Array(v + 1).fill(Infinity);
 
@@ -87,7 +87,7 @@ for (let i = 0; i < v + 1; i++) {
 }
 
 for (let i = 2; i < 2 + e; i++) {
-  const [start, end, dist] = input[i].split(' ').map((x) => +x);
+  const [start, end, dist] = input[i].split(' ').map(Number);
   graph[start].push([dist, end]);
 }
 
