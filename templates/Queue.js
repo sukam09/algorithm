@@ -5,8 +5,8 @@ class Queue {
     this.tail = 0;
   }
 
-  push(x) {
-    this.queue[this.tail++] = x;
+  push(item) {
+    this.queue[this.tail++] = item;
   }
 
   pop() {
