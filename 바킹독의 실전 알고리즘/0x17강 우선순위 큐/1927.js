@@ -1,11 +1,11 @@
 class Heap {
-  constructor(n) {
-    this.heap = Array(n + 1).fill(0);
+  constructor() {
+    this.heap = [];
     this.size = 0;
   }
 
-  push(num) {
-    this.heap[++this.size] = num;
+  push(item) {
+    this.heap[++this.size] = item;
     let index = this.size;
     while (index > 1) {
       const parentIndex = Math.floor(index / 2);
@@ -18,8 +18,8 @@ class Heap {
   }
 
   pop() {
-    this.heap[1] = this.heap[this.size];
-    this.heap[this.size--] = 0;
+    const item = this.heap[1];
+    this.heap[1] = this.heap[this.size--];
     let index = 1;
     while (2 * index <= this.size) {
       const leftChild = 2 * index;
@@ -37,10 +37,7 @@ class Heap {
       this.swap(index, minChild);
       index = minChild;
     }
-  }
-
-  top() {
-    return this.heap[1];
+    return item;
   }
 
   swap(a, b) {
@@ -58,19 +55,15 @@ const input = require('fs')
   .trim()
   .split('\n')
   .map(Number);
+
 const n = input[0];
-const heap = new Heap(n);
+const heap = new Heap();
 let answer = '';
 
 for (let i = 1; i <= n; i++) {
   const num = input[i];
   if (num === 0) {
-    if (heap.isEmpty()) {
-      answer += '0\n';
-    } else {
-      answer += `${heap.top()}\n`;
-      heap.pop();
-    }
+    answer += heap.isEmpty() ? '0\n' : `${heap.pop()}\n`;
   } else {
     heap.push(num);
   }

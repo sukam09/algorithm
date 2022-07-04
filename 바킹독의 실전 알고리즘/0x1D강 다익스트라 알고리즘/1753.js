@@ -1,11 +1,11 @@
 class Heap {
-  constructor(n) {
-    this.heap = Array(n + 1).fill([0, 0]);
+  constructor() {
+    this.heap = [];
     this.size = 0;
   }
 
-  push(node) {
-    this.heap[++this.size] = node;
+  push(item) {
+    this.heap[++this.size] = item;
     let index = this.size;
     while (index > 1) {
       const parentIndex = Math.floor(index / 2);
@@ -18,8 +18,8 @@ class Heap {
   }
 
   pop() {
-    this.heap[1] = this.heap[this.size];
-    this.heap[this.size--] = [0, 0];
+    const item = this.heap[1];
+    this.heap[1] = this.heap[this.size--];
     let index = 1;
     while (2 * index <= this.size) {
       const leftChild = 2 * index;
@@ -37,10 +37,7 @@ class Heap {
       this.swap(index, minChild);
       index = minChild;
     }
-  }
-
-  top() {
-    return this.heap[1];
+    return item;
   }
 
   swap(a, b) {
@@ -57,8 +54,7 @@ const dijkstra = () => {
   dists[k] = 0;
   heap.push([dists[k], k]);
   while (!heap.isEmpty()) {
-    const [curDist, curNode] = heap.top();
-    heap.pop();
+    const [curDist, curNode] = heap.pop();
     if (dists[curNode] !== curDist) {
       continue;
     }
@@ -78,7 +74,7 @@ const input = require('fs')
   .trim()
   .split('\n');
 const [v, e] = input[0].split(' ').map(Number);
-const k = parseInt(input[1]);
+const k = Number(input[1]);
 const dists = Array(v + 1).fill(Infinity);
 
 const graph = [];
@@ -94,7 +90,7 @@ for (let i = 2; i < 2 + e; i++) {
 dijkstra();
 let answer = '';
 for (let i = 1; i <= v; i++) {
-  answer += dists[i] === Infinity ? 'INF' : dists[i];
-  answer += '\n';
+  answer += dists[i] === Infinity ? 'INF\n' : `${dists[i]}\n`;
 }
+
 console.log(answer);
