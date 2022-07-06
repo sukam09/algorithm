@@ -66,17 +66,12 @@ while (!queue.isEmpty()) {
   }
 }
 
-const result = visited
-  .map((item, index) => (item ? index : -1))
-  .filter((item) => item !== -1);
-const target = new Set(result);
 let answer = 0;
-
 for (let i = 2; i < input.length; i++) {
   const line = input[i].split(' ').map(Number);
   let inflated = true;
   for (let j = 1; j < line.length; j++) {
-    if (target.has(line[j])) {
+    if (visited[line[j]]) {
       inflated = false;
       break;
     }
