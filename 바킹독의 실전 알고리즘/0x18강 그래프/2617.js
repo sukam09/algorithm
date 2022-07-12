@@ -39,12 +39,12 @@ const bfs = (start, nodes) => {
   return nodeNum;
 };
 
-const input = require('fs')
-  .readFileSync('/dev/stdin')
+const input = require("fs")
+  .readFileSync("/dev/stdin")
   .toString()
   .trim()
-  .split('\n');
-const [n, m] = input[0].split(' ').map(Number);
+  .split("\n");
+const [n, m] = input[0].split(" ").map(Number);
 const parentNodes = [];
 const childNodes = [];
 for (let i = 1; i <= n; i++) {
@@ -53,7 +53,7 @@ for (let i = 1; i <= n; i++) {
 }
 
 for (let i = 1; i <= m; i++) {
-  const [parent, child] = input[i].split(' ').map(Number);
+  const [parent, child] = input[i].split(" ").map(Number);
   parentNodes[child].push(parent);
   childNodes[parent].push(child);
 }

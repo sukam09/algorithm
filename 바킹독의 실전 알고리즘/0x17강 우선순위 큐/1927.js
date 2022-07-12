@@ -49,21 +49,21 @@ class Heap {
   }
 }
 
-const input = require('fs')
-  .readFileSync('/dev/stdin')
+const input = require("fs")
+  .readFileSync("/dev/stdin")
   .toString()
   .trim()
-  .split('\n')
+  .split("\n")
   .map(Number);
 
 const n = input[0];
 const heap = new Heap();
-let answer = '';
+let answer = "";
 
 for (let i = 1; i <= n; i++) {
   const num = input[i];
   if (num === 0) {
-    answer += heap.isEmpty() ? '0\n' : `${heap.pop()}\n`;
+    answer += heap.isEmpty() ? "0\n" : `${heap.pop()}\n`;
   } else {
     heap.push(num);
   }
