@@ -42,7 +42,9 @@ for (let i = 1; i < input.length; i++) {
 
 const queue = new Queue();
 for (let i = 1; i <= n; i++) {
-  if (indegrees[i] === 0) queue.push(i);
+  if (indegrees[i] === 0) {
+    queue.push(i);
+  }
 }
 
 let answer = "";
@@ -53,7 +55,9 @@ while (!queue.isEmpty()) {
   count++;
   for (const next of graph[cur]) {
     indegrees[next]--;
-    if (indegrees[next] === 0) queue.push(next);
+    if (indegrees[next] === 0) {
+      queue.push(next);
+    }
   }
 }
 
