@@ -23,7 +23,7 @@ const input = require("fs")
   .toString()
   .trim()
   .split("\n")
-  .map((x) => x.split(" ").map((x) => +x));
+  .map((x) => x.split(" ").map(Number));
 
 const n = input[0][0];
 const indegrees = Array(n + 1).fill(0);
