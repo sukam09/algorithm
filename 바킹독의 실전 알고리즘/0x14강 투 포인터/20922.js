@@ -3,7 +3,7 @@ const input = require("fs")
   .toString()
   .trim()
   .split("\n")
-  .map((x) => x.split(" ").map((x) => +x));
+  .map((x) => x.split(" ").map(Number));
 
 const [n, k] = [input[0][0], input[0][1]];
 const arr = input[1];
