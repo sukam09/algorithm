@@ -13,14 +13,8 @@ const counter = Array(100001).fill(0);
 counter[arr[0]] = 1;
 
 for (let start = 0; start < n; start++) {
-  while (end < n && counter[arr[end + 1]] < k) {
-    end++;
-    if (end < n) {
-      counter[arr[end]]++;
-    }
-  }
-  if (end === n) {
-    break;
+  while (end + 1 < n && counter[arr[end + 1]] < k) {
+    counter[arr[++end]]++;
   }
   answer = Math.max(answer, end - start + 1);
   counter[arr[start]]--;
