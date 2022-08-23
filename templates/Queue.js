@@ -1,19 +1,27 @@
 class Queue {
   constructor() {
-    this.queue = [];
+    this.data = [];
     this.head = 0;
     this.tail = 0;
   }
 
   push(item) {
-    this.queue[this.tail++] = item;
+    this.data[this.tail++] = item;
   }
 
   pop() {
-    return this.queue[this.head++];
+    this.head++;
+  }
+
+  front() {
+    return this.data[this.head];
+  }
+
+  rear() {
+    return this.data[this.tail - 1];
   }
 
   isEmpty() {
-    return this.tail - this.head === 0;
+    return this.head === this.tail;
   }
 }
