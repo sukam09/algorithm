@@ -1,4 +1,4 @@
-class Heap {
+class MaxHeap {
   constructor() {
     this.data = [];
     this.size = 0;
@@ -9,7 +9,7 @@ class Heap {
     let index = this.size;
     while (index > 1) {
       const parentIndex = Math.floor(index / 2);
-      if (this.data[parentIndex] <= this.data[index]) {
+      if (this.data[parentIndex] >= this.data[index]) {
         break;
       }
       this.swap(parentIndex, index);
@@ -27,18 +27,18 @@ class Heap {
     while (2 * index <= this.size) {
       const leftChild = 2 * index;
       const rightChild = 2 * index + 1;
-      let minChild = leftChild;
+      let maxChild = leftChild;
       if (
         rightChild <= this.size &&
-        this.data[rightChild] < this.data[leftChild]
+        this.data[rightChild] > this.data[leftChild]
       ) {
-        minChild = rightChild;
+        maxChild = rightChild;
       }
-      if (this.data[index] <= this.data[minChild]) {
+      if (this.data[index] >= this.data[maxChild]) {
         break;
       }
-      this.swap(index, minChild);
-      index = minChild;
+      this.swap(index, maxChild);
+      index = maxChild;
     }
   }
 
