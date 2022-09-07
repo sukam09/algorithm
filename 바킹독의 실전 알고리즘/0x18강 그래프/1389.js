@@ -70,13 +70,13 @@ const bfs = (node) => {
 
 const baconNumbers = [];
 let answer = 0;
-let min = Infinity;
+let minval = Infinity;
 for (let i = 1; i <= n; i++) {
   const baconNumber = bfs(i);
   baconNumbers[i] = baconNumber;
-  if (baconNumber < min) {
+  if (baconNumber < minval) {
     answer = i;
-    min = baconNumber;
+    minval = baconNumber;
   }
 }
 console.log(answer);
