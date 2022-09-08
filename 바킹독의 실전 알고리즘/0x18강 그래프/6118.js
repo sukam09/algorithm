@@ -63,4 +63,4 @@ while (!queue.isEmpty()) {
 const maxval = Math.max(...dists);
 const index = dists.indexOf(maxval);
 const count = dists.filter((dist) => dist === maxval).length;
-console.log(`${index} ${maxval} ${count}`);
+console.log(index, maxval, count);
