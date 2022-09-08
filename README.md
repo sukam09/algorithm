@@ -1,1 +1,1 @@
-# js-algorithm
+# js-cpp-algorithm
