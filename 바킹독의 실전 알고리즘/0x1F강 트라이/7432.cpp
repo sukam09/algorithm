@@ -10,7 +10,6 @@ int unused = 2;
 unordered_map<string, int> nxt[MX];  // nxt[v][r] -> v번 노드의 자식 중 이름이 r인 노드의 번호
 int depth[MX];                       // 노드의 깊이를 나타내며 ROOT의 깊이는 -1로 정의
 string name[MX];                     // 노드의 이름
-bool vis[MX];
 
 void insert(vector<string>& route) {
   int v = ROOT;
@@ -24,10 +23,6 @@ void insert(vector<string>& route) {
   }
 }
 
-bool cmp(const pair<string, int>& a, const pair<string, int>& b) {
-  return a.X < b.X;
-}
-
 void dfs(int v) {
   if (v != ROOT) {
     for (int i = 0; i < depth[v]; i++) cout << ' ';
@@ -35,12 +30,8 @@ void dfs(int v) {
   }
   // nxt[v]가 map이므로 vector로 바꾼 뒤 노드 이름을 이용해서 sort
   vector<pair<string, int>> m(nxt[v].begin(), nxt[v].end());
-  sort(m.begin(), m.end(), cmp);
-  for (auto mm : m) {
-    if (vis[mm.Y]) continue;
-    vis[mm.Y] = true;
-    dfs(mm.Y);
-  }
+  sort(m.begin(), m.end());
+  for (auto mm : m) dfs(mm.Y);
 }
 
 int main(void) {
@@ -57,7 +48,7 @@ int main(void) {
     vector<string> route;
     // "\"를 기준으로 split하여 route에 삽입
     for (auto c : s) {
-      if (c == 92) {
+      if (c == '\\') {
         route.push_back(cur);
         cur = "";
       } else
