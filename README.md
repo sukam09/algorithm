@@ -1,1 +1,1 @@
-# cpp-js-algorithm
+# algorithm
