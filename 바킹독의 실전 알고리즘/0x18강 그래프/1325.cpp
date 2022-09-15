@@ -2,7 +2,7 @@
 using namespace std;
 
 int n, m;
-vector<int> graph[10005];
+vector<int> adj[10005];
 int hacked[10005];
 queue<int> q;
 
@@ -14,7 +14,7 @@ int bfs(int node) {
   while (!q.empty()) {
     int cur = q.front();
     q.pop();
-    for (int nxt : graph[cur]) {
+    for (int nxt : adj[cur]) {
       if (vis[nxt]) {
         continue;
       }
@@ -34,7 +34,7 @@ int main(void) {
   for (int i = 0; i < m; i++) {
     int a, b;
     cin >> a >> b;
-    graph[b].push_back(a);
+    adj[b].push_back(a);
   }
   int mx = 0;
   for (int i = 1; i <= n; i++) {
