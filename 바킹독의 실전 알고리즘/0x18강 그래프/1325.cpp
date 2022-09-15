@@ -43,7 +43,7 @@ int main(void) {
   }
   for (int i = 1; i <= n; i++) {
     if (hacked[i] == mx) {
-      cout << i << " ";
+      cout << i << ' ';
     }
   }
 }
