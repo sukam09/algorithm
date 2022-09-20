@@ -10,7 +10,7 @@ int main(void) {
   int n, k, m;
   cin >> n >> k >> m;
   int h = 100001;
-  while(m--) {
+  while (m--) {
     for (int i = 0; i < k; i++) {
       int v;
       cin >> v;
