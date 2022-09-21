@@ -57,7 +57,7 @@ void dfs(int cnt) {
       tiltred(i); tiltblue(i);
     }
     dfs(cnt + 1);
-    // 재귀를 빠져나올때 구슬의 위치를 원래대로 돌려줘야 함
+    // 재귀를 빠져나올때 사탕의 위치를 원래대로 돌려줘야 함
     rx = rrx, ry = rry, bx = bbx, by = bby;
   }
 }
