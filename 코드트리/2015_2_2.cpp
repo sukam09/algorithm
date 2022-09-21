@@ -6,9 +6,9 @@ vector<string> board;
 // 상, 좌, 우, 하
 int dx[4] = {-1, 0, 0, 1};
 int dy[4] = {0, -1, 1, 0};
-int rx, ry; // 빨간 구슬 좌표
-int bx, by; // 파란 구슬 좌표
-int ox, oy; // 출구
+int rx, ry; // 빨간 사탕 좌표
+int bx, by; // 파란 사탕 좌표
+int ox, oy; // 출구 좌표
 int ans = 11;
 
 bool isbluefirst(int dir) {
