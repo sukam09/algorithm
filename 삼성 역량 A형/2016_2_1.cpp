@@ -13,35 +13,35 @@ bool OOB(int x, int y) {
 }
 
 void roll(int dir) {
+  int tmp[6];
+  fill(tmp, tmp + 6, -1);
   if (dir == 0) {
     // 동
-    int tmp = dice[3];
-    dice[3] = dice[1];
-    dice[1] = dice[4];
-    dice[4] = dice[0];
-    dice[0] = tmp;
+    tmp[3] = dice[1];
+    tmp[0] = dice[3];
+    tmp[4] = dice[0];
+    tmp[1] = dice[4];
   } else if (dir == 1) {
     // 서
-    int tmp = dice[3];
-    dice[3] = dice[0];
-    dice[0] = dice[4];
-    dice[4] = dice[1];
-    dice[1] = tmp;
+    tmp[3] = dice[0];
+    tmp[0] = dice[4];
+    tmp[4] = dice[1];
+    tmp[1] = dice[3];
   } else if (dir == 2) {
     // 북
-    int tmp = dice[2];
-    dice[2] = dice[0];
-    dice[0] = dice[5];
-    dice[5] = dice[1];
-    dice[1] = tmp;
+    tmp[2] = dice[0];
+    tmp[0] = dice[5];
+    tmp[5] = dice[1];
+    tmp[1] = dice[2];
   } else {
     // 남
-    int tmp = dice[2];
-    dice[2] = dice[1];
-    dice[1] = dice[5];
-    dice[5] = dice[0];
-    dice[0] = tmp;
+    tmp[2] = dice[1];
+    tmp[0] = dice[2];
+    tmp[5] = dice[0];
+    tmp[1] = dice[5];
   }
+  for (int i = 0; i < 6; i++)
+    if (tmp[i] != -1) dice[i] = tmp[i];
 }
 
 // 칸이 0이면 바닥 -> 칸
