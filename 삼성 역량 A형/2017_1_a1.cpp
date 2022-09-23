@@ -15,7 +15,7 @@ int main(void) {
   for (int i = n; i >= 1; i--) {
     d[i][0] = max(d[i + 1][0], d[i + 1][1]);
     int j = i + t[i];
-    d[i][1] = (j <= n + 1 ? p[i] + max(d[j][0], d[j][1]) : 0);
+    d[i][1] = j <= n + 1 ? p[i] + max(d[j][0], d[j][1]) : 0;
   }
   cout << max(d[1][0], d[1][1]);
 }
