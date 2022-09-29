@@ -18,6 +18,8 @@ bool chk() {
 }
 
 int main(void) {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
     cin >> n >> m >> h;
     while (m--) {
         int a, b;

@@ -5,6 +5,8 @@ using ll = long long;
 int rest[1000005];
 
 int main(void) {
+  ios::sync_with_stdio(0);
+  cin.tie(0);
   int n, a, b;
   cin >> n;
   for (int i = 0; i < n; i++)

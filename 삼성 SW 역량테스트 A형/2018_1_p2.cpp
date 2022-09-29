@@ -23,6 +23,8 @@ void solve() {
 }
 
 int main(void) {
+	ios::sync_with_stdio(0);
+  cin.tie(0);
 	cin >> n >> m;
 	int num = 0; // 병원 수
 	for (int i = 0;i < n; i++)
