@@ -33,7 +33,6 @@ int main(void) {
     }
     int mx = mx1 + mx2 + 1;
     ans = max(ans, mx);
-    // cout << i << ' ' << mx1 << ' ' << mx2 << '\n';
   }
   cout << ans;
 }
