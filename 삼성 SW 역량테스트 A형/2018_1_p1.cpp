@@ -52,11 +52,12 @@ int main(void) {
 	while (n--) {
 		int x, y, d, g;
 		cin >> x >> y >> d >> g;
+		swap(x, y);
 		solve(x, y, d, g);
 	}
 	int ans = 0;
-	for (int i = 0;i < 99; i++) {
-		for (int j = 0;j < 99; j++) {
+	for (int i = 0;i <= 99; i++) {
+		for (int j = 0;j <= 99; j++) {
 			int cnt = 0;
 			for (int k = 0;k < 4; k++) {
 				int x = i + sx[k];
