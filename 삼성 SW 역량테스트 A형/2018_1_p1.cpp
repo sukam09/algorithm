@@ -52,7 +52,6 @@ int main(void) {
 	while (n--) {
 		int x, y, d, g;
 		cin >> x >> y >> d >> g;
-		swap(x, y);
 		solve(x, y, d, g);
 	}
 	int ans = 0;
