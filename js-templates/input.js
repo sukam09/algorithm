@@ -3,4 +3,4 @@ const input = require("fs")
   .toString()
   .trim()
   .split("\n")
-  .map((line) => line.split(" ").map(Number));
+  .map((x) => x.split(" ").map(Number));
