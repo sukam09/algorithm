@@ -6,7 +6,7 @@ const input = require("fs")
 const n = Number(input[0]);
 const dist = [...Array(n)].map(() => Array(n).fill(Infinity));
 for (let i = 2; i < n + 2; i++) {
-  let r = i - 2;
+  const r = i - 2;
   const line = input[i].split(" ").map(Number);
   for (let j = 0; j < n; j++) {
     dist[r][j] = line[j] === 0 ? Infinity : 1;
