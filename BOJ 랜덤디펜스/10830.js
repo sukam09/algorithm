@@ -26,7 +26,7 @@ for (let i = 0; i < n; i++) {
 // 분할 정복을 이용한 거듭제곱
 while (b > 0) {
   if (b % 2 === 1) {
-    ret = matmul(ret, a);
+    ans = matmul(ans, a);
     b--;
   } else {
     a = matmul(a, a);
