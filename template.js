@@ -1,7 +1,6 @@
 // 입력
 const input = require("fs")
-  .readFileSync("/dev/stdin")
-  .toString()
+  .readFileSync("/dev/stdin", "utf8")
   .trim()
   .split("\n");
 
@@ -45,12 +44,12 @@ class MinHeap {
     this.dat[++this.sz] = x;
     let idx = this.sz;
     while (idx > 1) {
-      const p = Math.floor(idx / 2);
-      if (this.dat[p] <= this.dat[idx]) {
+      const par = Math.floor(idx / 2);
+      if (this.dat[par] <= this.dat[idx]) {
         break;
       }
-      this.swap(p, idx);
-      idx = p;
+      this.swap(par, idx);
+      idx = par;
     }
   }
 
@@ -80,7 +79,7 @@ class MinHeap {
     [this.dat[a], this.dat[b]] = [this.dat[b], this.dat[a]];
   }
 
-  isEmpty() {
+  empty() {
     return this.sz === 0;
   }
 }
@@ -92,16 +91,16 @@ class MaxHeap {
     this.sz = 0;
   }
 
-  push(item) {
-    this.dat[++this.sz] = item;
+  push(x) {
+    this.dat[++this.sz] = x;
     let idx = this.sz;
     while (idx > 1) {
-      const p = Math.floor(idx / 2);
-      if (this.dat[p] >= this.dat[idx]) {
+      const par = Math.floor(idx / 2);
+      if (this.dat[par] >= this.dat[idx]) {
         break;
       }
-      this.swap(p, idx);
-      idx = p;
+      this.swap(par, idx);
+      idx = par;
     }
   }
 
@@ -131,7 +130,7 @@ class MaxHeap {
     [this.dat[a], this.dat[b]] = [this.dat[b], this.dat[a]];
   }
 
-  isEmpty() {
+  empty() {
     return this.sz === 0;
   }
 }
@@ -139,62 +138,65 @@ class MaxHeap {
 // 다익스트라
 class MinHeap {
   constructor() {
-    this.heap = [];
+    this.dat = [];
     this.sz = 0;
   }
 
-  push(item) {
-    this.heap[++this.sz] = item;
+  push(x) {
+    this.dat[++this.sz] = x;
     let idx = this.sz;
     while (idx > 1) {
-      const p = Math.floor(idx / 2);
-      if (this.heap[p][0] <= this.heap[idx][0]) {
+      const par = Math.floor(idx / 2);
+      if (this.dat[par][0] <= this.dat[idx][0]) {
         break;
       }
-      this.swap(p, idx);
-      idx = p;
+      this.swap(par, idx);
+      idx = par;
     }
   }
 
+  top() {
+    return this.dat[1];
+  }
+
   pop() {
-    const item = this.heap[1];
-    this.heap[1] = this.heap[this.sz--];
+    this.dat[1] = this.dat[this.sz--];
     let idx = 1;
     while (2 * idx <= this.sz) {
       const lc = 2 * idx;
       const rc = 2 * idx + 1;
       let mc = lc;
-      if (rc <= this.sz && this.heap[rc][0] < this.heap[lc][0]) {
+      if (rc <= this.sz && this.dat[rc][0] < this.dat[lc][0]) {
         mc = rc;
       }
-      if (this.heap[idx][0] <= this.heap[mc][0]) {
+      if (this.dat[idx][0] <= this.dat[mc][0]) {
         break;
       }
       this.swap(idx, mc);
       idx = mc;
     }
-    return item;
   }
 
   swap(a, b) {
-    [this.heap[a], this.heap[b]] = [this.heap[b], this.heap[a]];
+    [this.dat[a], this.dat[b]] = [this.dat[b], this.dat[a]];
   }
 
-  isEmpty() {
+  empty() {
     return this.sz === 0;
   }
 }
 
 const dijkstra = (st) => {
-  const pq = new MinHeap();
   dist[st] = 0;
-  heap.push([dist[st], st]);
-  while (!pq.isEmpty()) {
-    const [d, v] = pq.pop();
+  const pq = new MinHeap();
+  pq.push([dist[st], st]);
+  while (!pq.empty()) {
+    const [d, v] = pq.top();
+    pq.pop();
     if (dist[v] !== d) {
       continue;
     }
-    for (const [nd, nv] of graph[v]) {
+    for (const [nd, nv] of adj[v]) {
       if (dist[nv] <= dist[v] + nd) {
         continue;
       }
