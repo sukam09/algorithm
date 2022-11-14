@@ -1,8 +1,22 @@
-// 입력
+// 입력(fs를 이용한 방식)
 const input = require("fs")
   .readFileSync("/dev/stdin", "utf8")
   .trim()
   .split("\n");
+
+// 입력(readline을 이용한 방식)
+// const readline = require("readline");
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout,
+// });
+// const input = [];
+// rl.on("line", (x) => {
+//   input.push(x);
+// }).on("close", () => {
+//   console.log(input);
+//   process.exit();
+// });
 
 // 큐
 class Queue {
