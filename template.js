@@ -1,22 +1,19 @@
 // 입력(fs를 이용한 방식)
-const input = require("fs")
-  .readFileSync("/dev/stdin", "utf8")
-  .trim()
-  .split("\n");
+const input = require("fs").readFileSync("/dev/stdin", "utf8").trim().split("\n");
 
 // 입력(readline을 이용한 방식)
-// const readline = require("readline");
-// const rl = readline.createInterface({
-//   input: process.stdin,
-//   output: process.stdout,
-// });
-// const input = [];
-// rl.on("line", (x) => {
-//   input.push(x);
-// }).on("close", () => {
-//   console.log(input);
-//   process.exit();
-// });
+const readline = require("readline");
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+const input = [];
+rl.on("line", (x) => {
+  input.push(x);
+}).on("close", () => {
+  console.log(input);
+  process.exit();
+});
 
 // 큐
 class Queue {
@@ -220,7 +217,60 @@ const dijkstra = (st) => {
   }
 };
 
-// 아래는 추후 추가 예정
 // 순열
+// 예시. BOJ 15649번: N과 M (1)
+const input = require("fs").readFileSync("/dev/stdin", "utf8").trim().split("\n");
+const [n, m] = input[0].split(" ").map(Number);
+const arr = Array(m).fill(0);
+const vis = Array(m).fill(false);
+let ans = "";
+
+const dfs = (k) => {
+  if (k === m) {
+    ans += arr.join(" ") + "\n";
+    return;
+  }
+  for (let i = 1; i <= n; i++) {
+    if (vis[i]) {
+      continue;
+    }
+    vis[i] = true;
+    arr[k] = i;
+    dfs(k + 1);
+    vis[i] = false;
+  }
+};
+
+dfs(0);
+console.log(ans);
 
 // 조합
+// 예시. BOJ 15650번: N과 M (2)
+const input = require("fs").readFileSync("/dev/stdin", "utf8").trim().split("\n");
+const [n, m] = input[0].split(" ").map(Number);
+const arr = Array(m).fill(0);
+const vis = Array(m).fill(false);
+let ans = "";
+
+const dfs = (k) => {
+  if (k === m) {
+    ans += arr.join(" ") + "\n";
+    return;
+  }
+  let st = 1;
+  if (k > 0) {
+    st = arr[k - 1] + 1;
+  }
+  for (let i = st; i <= n; i++) {
+    if (vis[i]) {
+      continue;
+    }
+    vis[i] = true;
+    arr[k] = i;
+    dfs(k + 1);
+    vis[i] = false;
+  }
+};
+
+dfs(0);
+console.log(ans);
