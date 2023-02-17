@@ -1,16 +1,16 @@
 // 입력(fs를 이용한 방식)
-const input = require("fs").readFileSync("/dev/stdin", "utf8").trim().split("\n");
+const input = require('fs').readFileSync('/dev/stdin', 'utf8').trim().split('\n');
 
 // 입력(readline을 이용한 방식)
-const readline = require("readline");
+const readline = require('readline');
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 const input = [];
-rl.on("line", (x) => {
+rl.on('line', x => {
   input.push(x);
-}).on("close", () => {
+}).on('close', () => {
   console.log(input);
   process.exit();
 });
@@ -197,7 +197,7 @@ class MinHeap {
   }
 }
 
-const dijkstra = (st) => {
+const dijkstra = st => {
   dist[st] = 0;
   const pq = new MinHeap();
   pq.push([dist[st], st]);
@@ -219,15 +219,15 @@ const dijkstra = (st) => {
 
 // 순열
 // 예시. BOJ 15649번: N과 M (1)
-const input = require("fs").readFileSync("/dev/stdin", "utf8").trim().split("\n");
-const [n, m] = input[0].split(" ").map(Number);
+const input = require('fs').readFileSync('/dev/stdin', 'utf8').trim().split('\n');
+const [n, m] = input[0].split(' ').map(Number);
 const arr = Array(m).fill(0);
 const vis = Array(m).fill(false);
-let ans = "";
+let ans = '';
 
-const dfs = (k) => {
+const dfs = k => {
   if (k === m) {
-    ans += arr.join(" ") + "\n";
+    ans += arr.join(' ') + '\n';
     return;
   }
   for (let i = 1; i <= n; i++) {
@@ -246,15 +246,15 @@ console.log(ans);
 
 // 조합
 // 예시. BOJ 15650번: N과 M (2)
-const input = require("fs").readFileSync("/dev/stdin", "utf8").trim().split("\n");
-const [n, m] = input[0].split(" ").map(Number);
+const input = require('fs').readFileSync('/dev/stdin', 'utf8').trim().split('\n');
+const [n, m] = input[0].split(' ').map(Number);
 const arr = Array(m).fill(0);
 const vis = Array(m).fill(false);
-let ans = "";
+let ans = '';
 
-const dfs = (k) => {
+const dfs = k => {
   if (k === m) {
-    ans += arr.join(" ") + "\n";
+    ans += arr.join(' ') + '\n';
     return;
   }
   let st = 1;
