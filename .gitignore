@@ -4,3 +4,5 @@
 test.*
 .vscode
 *.txt
+비공개 코테/
+test*.*
