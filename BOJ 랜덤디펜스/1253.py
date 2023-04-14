@@ -7,9 +7,7 @@ def solve(x):
     st = 0
     en = len(tmp) - 1
     while st < en:
-        # print(st, en, x, tmp)
         if tmp[st] + tmp[en] == a[x]:
-            # print(st, en, x)
             ans += 1
             return
         if tmp[st] + tmp[en] < a[x]: st += 1
