@@ -28,8 +28,6 @@ var mergeTwoLists = function (list1, list2) {
   const arr = [...arr1, ...arr2];
   arr.sort((a, b) => a - b);
 
-  console.log(arr);
-
   let prev;
   const dummy = new ListNode();
   prev = dummy;
