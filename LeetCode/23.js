@@ -10,7 +10,7 @@
  * @return {ListNode}
  */
 var mergeKLists = function (lists) {
-  let arr = [];
+  const arr = [];
   let cur;
   for (const list of lists) {
     cur = list;
