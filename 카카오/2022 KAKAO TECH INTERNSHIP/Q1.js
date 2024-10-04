@@ -24,3 +24,8 @@ function solution(survey, choices) {
   }
   return ans;
 }
+/*
++가 ||보다 연산자 우선순위가 높음에 주의
+예를 들어, map에서 가져오는 코드를 아래와 같이 짜면 오답
+map.get(sv[0]) || 0 + (4 - c)
+*/
