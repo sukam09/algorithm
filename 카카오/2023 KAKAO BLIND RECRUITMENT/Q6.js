@@ -34,10 +34,6 @@ function solution(n, m, x, y, r, c, k) {
       return;
     }
 
-    if (x === r && y === c && (k - cnt) % 2 === 1) {
-      return;
-    }
-
     for (let i = 0; i < 4; i++) {
       const nx = x + dx[i];
       const ny = y + dy[i];
