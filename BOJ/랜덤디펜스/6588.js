@@ -1,9 +1,9 @@
-const input = require("fs")
-  .readFileSync("/dev/stdin")
+const input = require('fs')
+  .readFileSync('/dev/stdin')
   .toString()
   .trim()
-  .split("\n")
-  .map((x) => x.split(" ").map(Number));
+  .split('\n')
+  .map(x => x.split(' ').map(Number));
 
 // 에라토스테네스의 체
 const p = Array(1000001).fill(true);
@@ -17,7 +17,7 @@ for (let i = 2; i * i <= 1000000; i++) {
     p[j] = false;
   }
 }
-let ans = "";
+let ans = '';
 for (let i = 0; i < input.length - 1; i++) {
   const x = input[i][0]; // input[i]가 숫자가 아닌 배열임에 주의
   let found = false;

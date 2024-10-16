@@ -11,10 +11,7 @@ const dp = (st, en) => {
     return (d[st][en] = cost[st] + cost[en]);
   }
   for (let mid = st; mid < en; mid++) {
-    d[st][en] = Math.min(
-      d[st][en],
-      dp(st, mid) + dp(mid + 1, en) + s[en] - s[st - 1]
-    );
+    d[st][en] = Math.min(d[st][en], dp(st, mid) + dp(mid + 1, en) + s[en] - s[st - 1]);
   }
   return d[st][en];
 };
@@ -26,19 +23,15 @@ const solve = () => {
   for (let i = 1; i <= k; i++) {
     s[i] = s[i - 1] + cost[i];
   }
-  ans += dp(1, k) + "\n";
+  ans += dp(1, k) + '\n';
 };
 
-const input = require("fs")
-  .readFileSync("/dev/stdin")
-  .toString()
-  .trim()
-  .split("\n");
+const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
 let k, arr, d, cost, s;
-let ans = "";
+let ans = '';
 for (let i = 1; i < input.length; i += 2) {
   k = Number(input[i]);
-  arr = input[i + 1].split(" ").map(Number);
+  arr = input[i + 1].split(' ').map(Number);
   solve();
 }
 console.log(ans);

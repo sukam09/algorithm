@@ -1,10 +1,6 @@
-const input = require("fs")
-  .readFileSync("/dev/stdin")
-  .toString()
-  .trim()
-  .split("\n");
+const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
 const n = Number(input[0]);
-const a = input[1].split(" ").map(Number);
+const a = input[1].split(' ').map(Number);
 a.sort((x, y) => x - y);
 let st = 0;
 let en = n - 1;

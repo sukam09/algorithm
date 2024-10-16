@@ -19,7 +19,7 @@ const solve = x => {
   }
 
   return cnt <= m;
-}
+};
 
 while (st < en) {
   let mid = Math.floor((st + en) / 2);

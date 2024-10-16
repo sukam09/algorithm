@@ -16,11 +16,7 @@ const gcd = (a, b) => {
   return gcd(b, a % b);
 };
 
-const input = require("fs")
-  .readFileSync("/dev/stdin")
-  .toString()
-  .trim()
-  .split("\n");
+const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
 const n = Number(input[0]);
 const arr = input.slice(1).map(Number);
 arr.sort((a, b) => a - b);
@@ -28,10 +24,10 @@ let gcdval = arr[1] - arr[0];
 for (let i = 1; i < n - 1; i++) {
   gcdval = gcd(gcdval, arr[i + 1] - arr[i]);
 }
-let ans = "";
+let ans = '';
 for (let i = 2; i <= gcdval; i++) {
   if (gcdval % i === 0) {
-    ans += i + " ";
+    ans += i + ' ';
   }
 }
 console.log(ans);

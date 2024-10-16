@@ -1,13 +1,13 @@
-const input = require("fs")
-  .readFileSync("/dev/stdin")
+const input = require('fs')
+  .readFileSync('/dev/stdin')
   .toString()
   .trim()
-  .split("\n")
-  .map((line) => line.split(" "));
+  .split('\n')
+  .map(line => line.split(' '));
 
 const n = Number(input[0][0]);
 const stack = [];
-let answer = "";
+let answer = '';
 
 for (let i = 1; i <= n; i++) {
   const command = input[i];
@@ -17,20 +17,20 @@ for (let i = 1; i <= n; i++) {
   } else {
     const size = stack.length;
     switch (command[0]) {
-      case "pop":
+      case 'pop':
         answer += size === 0 ? -1 : stack.pop();
         break;
-      case "size":
+      case 'size':
         answer += size;
         break;
-      case "empty":
+      case 'empty':
         answer += size === 0 ? 1 : 0;
         break;
-      case "top":
+      case 'top':
         answer += size === 0 ? -1 : stack[size - 1];
         break;
     }
-    answer += "\n";
+    answer += '\n';
   }
 }
 

@@ -27,18 +27,13 @@ const solve = (cur, l, r) => {
   return (dp[cur][l][r] = Math.min(
     dp[cur][l][r],
     solve(cur + 1, nxt, r) + move(l, nxt),
-    solve(cur + 1, l, nxt) + move(r, nxt)
+    solve(cur + 1, l, nxt) + move(r, nxt),
   ));
 };
 
-const input = require("fs")
-  .readFileSync("/dev/stdin", "utf8")
-  .trim()
-  .split("\n");
-const arr = input[0].split(" ").map(Number);
+const input = require('fs').readFileSync('/dev/stdin', 'utf8').trim().split('\n');
+const arr = input[0].split(' ').map(Number);
 arr.pop();
 const n = arr.length;
-const dp = [...Array(n)].map(() =>
-  [...Array(5)].map(() => Array(5).fill(Infinity))
-);
+const dp = [...Array(n)].map(() => [...Array(5)].map(() => Array(5).fill(Infinity)));
 console.log(solve(0, 0, 0));

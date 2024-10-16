@@ -26,12 +26,12 @@ class Queue {
   }
 }
 
-const input = require("fs")
-  .readFileSync("/dev/stdin")
+const input = require('fs')
+  .readFileSync('/dev/stdin')
   .toString()
   .trim()
-  .split("\n")
-  .map((x) => x.split(" ").map(Number));
+  .split('\n')
+  .map(x => x.split(' ').map(Number));
 
 const [n, m] = input[0];
 const adj = [];
@@ -43,7 +43,7 @@ for (let i = 1; i <= m; i++) {
   adj[b].push(a);
 }
 
-const bfs = (node) => {
+const bfs = node => {
   const q = new Queue();
   const vis = Array(n + 1).fill(false);
   q.push(node);
@@ -72,10 +72,10 @@ for (let i = 1; i <= n; i++) {
   mx = Math.max(mx, hacked[i]);
 }
 
-let ans = "";
+let ans = '';
 for (let i = 1; i <= n; i++) {
   if (hacked[i] === mx) {
-    ans += i + " ";
+    ans += i + ' ';
   }
 }
 console.log(ans);

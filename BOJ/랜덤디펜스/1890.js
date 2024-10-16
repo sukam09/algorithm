@@ -1,10 +1,10 @@
 // 정답 범위가 최대 2^63-1이므로 BigInt를 사용
-const input = require("fs")
-  .readFileSync("/dev/stdin")
+const input = require('fs')
+  .readFileSync('/dev/stdin')
   .toString()
   .trim()
-  .split("\n")
-  .map((x) => x.split(" ").map((x) => +x));
+  .split('\n')
+  .map(x => x.split(' ').map(x => +x));
 
 const n = input[0][0];
 const a = input.slice(1);

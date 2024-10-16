@@ -1,10 +1,6 @@
-const input = require("fs")
-  .readFileSync("/dev/stdin")
-  .toString()
-  .trim()
-  .split("\n");
-let [n, m, b] = input[0].split(" ").map(Number);
-const board = input.slice(1).map((x) => x.split(" ").map(Number));
+const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
+let [n, m, b] = input[0].split(' ').map(Number);
+const board = input.slice(1).map(x => x.split(' ').map(Number));
 let ans1 = Infinity;
 let ans2 = -1;
 for (let h = 0; h <= 256; h++) {

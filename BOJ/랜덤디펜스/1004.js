@@ -11,19 +11,19 @@ const solve = () => {
       chk[i] = !chk[i];
     }
   }
-  ans += chk.filter((x) => x).length + "\n";
+  ans += chk.filter(x => x).length + '\n';
 };
 
-const input = require("fs")
-  .readFileSync("/dev/stdin")
+const input = require('fs')
+  .readFileSync('/dev/stdin')
   .toString()
   .trim()
-  .split("\n")
-  .map((x) => x.split(" ").map(Number));
+  .split('\n')
+  .map(x => x.split(' ').map(Number));
 let circle = [];
 let x1, y1, x2, y2;
 let cnt;
-let ans = "";
+let ans = '';
 for (let i = 1; i < input.length; i++) {
   if (input[i].length === 4) {
     [x1, y1, x2, y2] = input[i];

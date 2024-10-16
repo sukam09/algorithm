@@ -25,10 +25,7 @@ class Heap {
       const leftChild = 2 * index;
       const rightChild = 2 * index + 1;
       let minChild = leftChild;
-      if (
-        rightChild <= this.size &&
-        this.heap[rightChild] < this.heap[leftChild]
-      ) {
+      if (rightChild <= this.size && this.heap[rightChild] < this.heap[leftChild]) {
         minChild = rightChild;
       }
       if (this.heap[index] <= this.heap[minChild]) {
@@ -49,12 +46,12 @@ class Heap {
   }
 }
 
-const input = require("fs")
-  .readFileSync("/dev/stdin")
+const input = require('fs')
+  .readFileSync('/dev/stdin')
   .toString()
   .trim()
-  .split("\n")
-  .map((x) => x.split(" ").map(Number));
+  .split('\n')
+  .map(x => x.split(' ').map(Number));
 
 const [n, m] = input[0];
 const graph = [];
@@ -78,7 +75,7 @@ for (let i = 1; i <= n; i++) {
   }
 }
 
-let answer = "";
+let answer = '';
 while (!heap.isEmpty()) {
   const cur = heap.pop();
   answer += `${cur} `;

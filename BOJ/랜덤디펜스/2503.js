@@ -13,7 +13,7 @@ const chk = num => {
   }
 
   return 1;
-}
+};
 
 const cands = [];
 const sbx = 'SBX';

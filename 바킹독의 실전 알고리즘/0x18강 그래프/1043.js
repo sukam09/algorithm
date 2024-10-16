@@ -18,12 +18,8 @@ class Queue {
   }
 }
 
-const input = require("fs")
-  .readFileSync("/dev/stdin")
-  .toString()
-  .trim()
-  .split("\n");
-const [n, m] = input[0].split(" ").map(Number);
+const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
+const [n, m] = input[0].split(' ').map(Number);
 
 const graph = [];
 for (let i = 1; i <= n; i++) {
@@ -33,7 +29,7 @@ for (let i = 1; i <= n; i++) {
 let start;
 
 for (let i = 1; i < input.length; i++) {
-  const [p, ...pp] = input[i].split(" ").map(Number);
+  const [p, ...pp] = input[i].split(' ').map(Number);
   if (p === 0) {
     console.log(m);
     process.exit();
@@ -68,7 +64,7 @@ while (!queue.isEmpty()) {
 
 let answer = 0;
 for (let i = 2; i < input.length; i++) {
-  const line = input[i].split(" ").map(Number);
+  const line = input[i].split(' ').map(Number);
   let inflated = true;
   for (let j = 1; j < line.length; j++) {
     if (visited[line[j]]) {

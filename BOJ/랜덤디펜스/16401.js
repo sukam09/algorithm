@@ -1,13 +1,10 @@
-const input = require("fs")
-  .readFileSync("/dev/stdin", "utf8")
-  .trim()
-  .split("\n");
-const [m, n] = input[0].split(" ").map(Number);
-const l = input[1].split(" ").map(Number);
+const input = require('fs').readFileSync('/dev/stdin', 'utf8').trim().split('\n');
+const [m, n] = input[0].split(' ').map(Number);
+const l = input[1].split(' ').map(Number);
 let st = 1;
 let en = Math.max(...l);
 
-const solve = (mid) => {
+const solve = mid => {
   let cnt = 0;
   for (let i = 0; i < n; i++) {
     cnt += Math.floor(l[i] / mid);

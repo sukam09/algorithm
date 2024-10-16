@@ -22,7 +22,7 @@ const solve = () => {
     }
   }
   ans += 'NO\n';
-}
+};
 
 for (let i = 1; i < input.length; i++) {
   if (ccnt === tcnt) {
@@ -39,7 +39,7 @@ for (let i = 1; i < input.length; i++) {
     const [s, e, t] = input[i].split(' ').map(v => +v);
     if (ccnt < m) {
       adj.push([t, s, e]);
-      adj.push([t, e, s])
+      adj.push([t, e, s]);
     } else {
       adj.push([-t, s, e]);
     }

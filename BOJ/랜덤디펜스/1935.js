@@ -21,7 +21,7 @@ const calc = (a, b, op) => {
   } else {
     return a / b;
   }
-}
+};
 
 for (const x of p) {
   if (alpha.includes(x)) {

@@ -21,18 +21,15 @@ const solve = (i, k) => {
   return (dp[i][k] = Math.min(tl, tr));
 };
 
-const input = require("fs")
-  .readFileSync("/dev/stdin", "utf8")
-  .trim()
-  .split("\n");
+const input = require('fs').readFileSync('/dev/stdin', 'utf8').trim().split('\n');
 const n = Number(input[0]);
-const st = input[1].split("").map(Number);
-const en = input[2].split("").map(Number);
+const st = input[1].split('').map(Number);
+const en = input[2].split('').map(Number);
 const dp = [...Array(n)].map(() => Array(10).fill(-1));
 const hist = [...Array(n)].map(() => Array(10).fill(0));
 solve(0, 0);
 const cnt = dp[0][0];
-let route = "";
+let route = '';
 let k = 0;
 for (let i = 0; i < n; i++) {
   if (hist[i][k] === 0) {

@@ -54,30 +54,26 @@ const isBipartite = (v, graph) => {
   return true;
 };
 
-const input = require("fs")
-  .readFileSync("/dev/stdin")
-  .toString()
-  .trim()
-  .split("\n");
+const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
 
 let k = Number(input[0]);
 let i = 1;
-let answer = "";
+let answer = '';
 
 while (k--) {
-  let [v, e] = input[i].split(" ").map(Number);
+  let [v, e] = input[i].split(' ').map(Number);
   graph = Array(v + 1);
   for (let j = 1; j <= v; j++) {
     graph[j] = [];
   }
   i++;
   while (e--) {
-    const [a, b] = input[i].split(" ").map(Number);
+    const [a, b] = input[i].split(' ').map(Number);
     graph[a].push(b);
     graph[b].push(a);
     i++;
   }
-  answer += isBipartite(v, graph) ? "YES\n" : "NO\n";
+  answer += isBipartite(v, graph) ? 'YES\n' : 'NO\n';
 }
 
 console.log(answer);

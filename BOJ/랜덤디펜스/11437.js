@@ -1,4 +1,4 @@
-const dfs = (v) => {
+const dfs = v => {
   for (const nv of adj[v]) {
     if (nv === p[v]) {
       continue;
@@ -21,26 +21,23 @@ const solve = (u, v) => {
     u = p[u];
     v = p[v];
   }
-  ans += u + "\n";
+  ans += u + '\n';
 };
 
-const input = require("fs")
-  .readFileSync("/dev/stdin", "utf8")
-  .trim()
-  .split("\n");
+const input = require('fs').readFileSync('/dev/stdin', 'utf8').trim().split('\n');
 const n = Number(input[0]);
 const adj = [...Array(n + 1)].map(() => []);
 for (let i = 1; i < n; i++) {
-  const [u, v] = input[i].split(" ").map(Number);
+  const [u, v] = input[i].split(' ').map(Number);
   adj[u].push(v);
   adj[v].push(u);
 }
 const p = Array(n + 1).fill(0);
 const depth = Array(n + 1).fill(0);
 dfs(1);
-let ans = "";
+let ans = '';
 for (let i = n + 1; i < input.length; i++) {
-  const [u, v] = input[i].split(" ").map(Number);
+  const [u, v] = input[i].split(' ').map(Number);
   solve(u, v);
 }
 console.log(ans);

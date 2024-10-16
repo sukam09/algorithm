@@ -13,7 +13,7 @@ function solution(users, emoticons) {
       arr[k] = i;
       dfs(k + 1);
     }
-  }
+  };
 
   dfs(0);
 
@@ -36,7 +36,7 @@ function solution(users, emoticons) {
         emomoney += money;
       }
     }
-    
+
     ret.push([emoplus, emomoney]);
   }
 

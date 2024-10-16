@@ -1,4 +1,4 @@
-const dfs = (v) => {
+const dfs = v => {
   for (const nv of adj[v]) {
     if (vis[nv]) {
       cnt++;
@@ -9,18 +9,14 @@ const dfs = (v) => {
   }
 };
 
-const input = require("fs")
-  .readFileSync("/dev/stdin")
-  .toString()
-  .trim()
-  .split("\n");
+const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
 let cnt;
 let vis;
-let ans = "";
+let ans = '';
 let adj;
 for (let i = 1; i < input.length; i += 2) {
   const n = Number(input[i]);
-  const arr = input[i + 1].split(" ").map(Number);
+  const arr = input[i + 1].split(' ').map(Number);
   adj = [...Array(n + 1)].map(() => []);
   for (let j = 0; j < arr.length; j++) {
     adj[j + 1].push(arr[j]);
@@ -34,6 +30,6 @@ for (let i = 1; i < input.length; i += 2) {
     vis[i] = true;
     dfs(i);
   }
-  ans += cnt + "\n";
+  ans += cnt + '\n';
 }
 console.log(ans);

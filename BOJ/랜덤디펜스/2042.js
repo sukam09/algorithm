@@ -8,7 +8,7 @@ let ans = '';
 const add = (idx, val) => {
   while (idx <= n) {
     BIT[idx] += BigInt(val);
-    idx += (idx & -idx);
+    idx += idx & -idx;
   }
 };
 
@@ -16,10 +16,10 @@ const sum = idx => {
   let s = BigInt(0);
   while (idx > 0) {
     s += BIT[idx];
-    idx -= (idx & -idx);
+    idx -= idx & -idx;
   }
   return s;
-}
+};
 
 for (let i = 1; i <= n; i++) {
   arr[i] = BigInt(input[i]);

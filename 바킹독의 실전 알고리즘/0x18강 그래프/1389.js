@@ -26,12 +26,12 @@ class Queue {
   }
 }
 
-const input = require("fs")
-  .readFileSync("/dev/stdin")
+const input = require('fs')
+  .readFileSync('/dev/stdin')
   .toString()
   .trim()
-  .split("\n")
-  .map((line) => line.split(" ").map(Number));
+  .split('\n')
+  .map(line => line.split(' ').map(Number));
 
 const [n, m] = input[0];
 const graph = [];
@@ -44,7 +44,7 @@ for (let i = 1; i <= m; i++) {
   graph[b].push(a);
 }
 
-const bfs = (node) => {
+const bfs = node => {
   const queue = new Queue();
   const dists = Array(n + 1).fill(-1);
   queue.push(node);

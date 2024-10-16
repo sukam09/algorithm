@@ -28,10 +28,7 @@ class MaxHeap {
       const leftChild = 2 * index;
       const rightChild = 2 * index + 1;
       let maxChild = leftChild;
-      if (
-        rightChild <= this.size &&
-        this.data[rightChild] > this.data[leftChild]
-      ) {
+      if (rightChild <= this.size && this.data[rightChild] > this.data[leftChild]) {
         maxChild = rightChild;
       }
       if (this.data[index] >= this.data[maxChild]) {
@@ -81,10 +78,7 @@ class MinHeap {
       const leftChild = 2 * index;
       const rightChild = 2 * index + 1;
       let minChild = leftChild;
-      if (
-        rightChild <= this.size &&
-        this.data[rightChild] < this.data[leftChild]
-      ) {
+      if (rightChild <= this.size && this.data[rightChild] < this.data[leftChild]) {
         minChild = rightChild;
       }
       if (this.data[index] <= this.data[minChild]) {
@@ -104,12 +98,7 @@ class MinHeap {
   }
 }
 
-const input = require("fs")
-  .readFileSync("/dev/stdin")
-  .toString()
-  .trim()
-  .split("\n")
-  .map(Number);
+const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n').map(Number);
 
 const n = input[0];
 const maxHeap = new MaxHeap();
@@ -145,7 +134,7 @@ for (let i = 2; i <= n; i++) {
       answer += minHeap.top();
     }
   }
-  answer += "\n";
+  answer += '\n';
 }
 
 console.log(answer);

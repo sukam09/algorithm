@@ -7,7 +7,7 @@ const reverse = s => {
     ns += s[i];
   }
   return ns;
-}
+};
 
 let x = t;
 while (x.length > s.length) {

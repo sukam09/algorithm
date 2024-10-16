@@ -62,12 +62,12 @@ const bfs = (x, y) => {
   }
 };
 
-const input = require("fs")
-  .readFileSync("/dev/stdin")
+const input = require('fs')
+  .readFileSync('/dev/stdin')
   .toString()
   .trim()
-  .split("\n")
-  .map((x) => x.split(" ").map(Number));
+  .split('\n')
+  .map(x => x.split(' ').map(Number));
 const [n, l, r] = input[0];
 const board = [];
 for (let i = 1; i < input.length; i++) {

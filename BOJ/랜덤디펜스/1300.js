@@ -1,4 +1,9 @@
-const input = require('fs').readFileSync(0).toString().trim().split('\n').map(v => +v);
+const input = require('fs')
+  .readFileSync(0)
+  .toString()
+  .trim()
+  .split('\n')
+  .map(v => +v);
 const [n, k] = input;
 
 let st = 1;

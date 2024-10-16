@@ -22,12 +22,12 @@ const dfs = (idx, hist) => {
   }
 };
 
-const input = require("fs")
-  .readFileSync("/dev/stdin")
+const input = require('fs')
+  .readFileSync('/dev/stdin')
   .toString()
   .trim()
-  .split("\n")
-  .map((x) => x.split(" ").map((x) => +x));
+  .split('\n')
+  .map(x => x.split(' ').map(x => +x));
 const n = input[0][0];
 const w = input.slice(1);
 let ans = Infinity;

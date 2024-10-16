@@ -1,10 +1,6 @@
-const input = require("fs")
-  .readFileSync("/dev/stdin")
-  .toString()
-  .trim()
-  .split("\n");
+const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
 const n = Number(input[0]);
-const arr = input.slice(1).map((x) => x.split(" ").map(Number));
+const arr = input.slice(1).map(x => x.split(' ').map(Number));
 
 // chained matrix multiplication algorithm
 // BOJ 11066번: 파일 합치기랑 비슷한 문제
@@ -17,10 +13,7 @@ for (let d = 0; d < n; d++) {
       continue;
     }
     for (let k = i; k < j; k++) {
-      dp[i][j] = Math.min(
-        dp[i][j],
-        dp[i][k] + dp[k + 1][j] + arr[i][0] * arr[k][1] * arr[j][1]
-      );
+      dp[i][j] = Math.min(dp[i][j], dp[i][k] + dp[k + 1][j] + arr[i][0] * arr[k][1] * arr[j][1]);
     }
   }
 }

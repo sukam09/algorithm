@@ -1,5 +1,5 @@
-const [n, m, ...input] = require("fs")
-  .readFileSync("/dev/stdin")
+const [n, m, ...input] = require('fs')
+  .readFileSync('/dev/stdin')
   .toString()
   .trim()
   .split(/\s/)

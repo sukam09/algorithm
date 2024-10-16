@@ -22,7 +22,7 @@ const chk = () => {
   return 1;
 };
 
-const dfs = (k) => {
+const dfs = k => {
   if (k === n) {
     if (chk()) {
       console.log(arr2.join(' '));
@@ -38,6 +38,6 @@ const dfs = (k) => {
     dfs(k + 1);
     vis[i] = 0;
   }
-}
+};
 
 dfs(0);

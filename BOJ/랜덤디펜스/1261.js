@@ -26,13 +26,9 @@ class Queue {
   }
 }
 
-const input = require("fs")
-  .readFileSync("/dev/stdin")
-  .toString()
-  .trim()
-  .split("\n");
-const [m, n] = input[0].split(" ").map((x) => +x); // n, m이 아님에 주의
-const board = input.slice(1).map((x) => x.split("").map((x) => +x));
+const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
+const [m, n] = input[0].split(' ').map(x => +x); // n, m이 아님에 주의
+const board = input.slice(1).map(x => x.split('').map(x => +x));
 const dx = [1, 0, -1, 0];
 const dy = [0, 1, 0, -1];
 const OOB = (x, y) => x < 0 || x >= n || y < 0 || y >= m;

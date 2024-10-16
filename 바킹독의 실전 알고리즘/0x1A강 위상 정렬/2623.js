@@ -18,12 +18,12 @@ class Queue {
   }
 }
 
-const input = require("fs")
-  .readFileSync("/dev/stdin")
+const input = require('fs')
+  .readFileSync('/dev/stdin')
   .toString()
   .trim()
-  .split("\n")
-  .map((x) => x.split(" ").map(Number));
+  .split('\n')
+  .map(x => x.split(' ').map(Number));
 
 const n = input[0][0];
 const indegrees = Array(n + 1).fill(0);
@@ -47,7 +47,7 @@ for (let i = 1; i <= n; i++) {
   }
 }
 
-let answer = "";
+let answer = '';
 let count = 0;
 while (!queue.isEmpty()) {
   const cur = queue.pop();

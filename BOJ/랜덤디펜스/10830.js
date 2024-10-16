@@ -11,14 +11,10 @@ const matmul = (a, b) => {
   return ret;
 };
 
-const input = require("fs")
-  .readFileSync("/dev/stdin")
-  .toString()
-  .trim()
-  .split("\n");
-const n = input[0].split(" ").map(Number)[0];
-let a = input.slice(1).map((x) => x.split(" ").map(Number));
-let b = input[0].split(" ").map(Number)[1];
+const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
+const n = input[0].split(' ').map(Number)[0];
+let a = input.slice(1).map(x => x.split(' ').map(Number));
+let b = input[0].split(' ').map(Number)[1];
 let ans = [...Array(n)].map(() => Array(n).fill(0));
 for (let i = 0; i < n; i++) {
   ans[i][i] = 1; // 단위행렬
@@ -33,6 +29,6 @@ while (b > 0) {
     b /= 2;
   }
 }
-let output = "";
-ans.forEach((x) => (output += x.join(" ") + "\n"));
+let output = '';
+ans.forEach(x => (output += x.join(' ') + '\n'));
 console.log(output);

@@ -1,9 +1,4 @@
-const input = require("fs")
-  .readFileSync("/dev/stdin")
-  .toString()
-  .trim()
-  .split("\n")
-  .map(Number);
+const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n').map(Number);
 
 const n = input[0];
 const arr = [];
@@ -20,7 +15,7 @@ for (let i = 0; i < n; i++) {
 }
 pairs.sort((a, b) => a - b);
 
-const solution = (target) => {
+const solution = target => {
   let start = 0;
   let end = pairs.length - 1;
   while (start <= end) {

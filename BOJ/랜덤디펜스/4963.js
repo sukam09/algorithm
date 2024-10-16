@@ -26,12 +26,12 @@ class Queue {
   }
 }
 
-const input = require("fs")
-  .readFileSync("/dev/stdin")
+const input = require('fs')
+  .readFileSync('/dev/stdin')
   .toString()
   .trim()
-  .split("\n")
-  .map((x) => x.split(" ").map(Number));
+  .split('\n')
+  .map(x => x.split(' ').map(Number));
 
 const dx = [1, 0, -1, 0, -1, -1, 1, 1];
 const dy = [0, 1, 0, -1, -1, 1, -1, 1];
@@ -73,7 +73,7 @@ let chk = false;
 let board;
 let cnt = 0;
 let w, h;
-let ans = "";
+let ans = '';
 for (let i = 0; i < input.length - 1; i++) {
   if (!chk) {
     [w, h] = input[i];

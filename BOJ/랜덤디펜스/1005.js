@@ -46,7 +46,7 @@ const solve = () => {
     const cur = q.front();
     q.pop();
     if (cur === w) {
-      ans += dp[w] + "\n";
+      ans += dp[w] + '\n';
       return;
     }
     for (const nxt of adj[cur]) {
@@ -59,17 +59,17 @@ const solve = () => {
   }
 };
 
-const input = require("fs")
-  .readFileSync("/dev/stdin")
+const input = require('fs')
+  .readFileSync('/dev/stdin')
   .toString()
   .trim()
-  .split("\n")
-  .map((x) => x.split(" ").map((x) => +x));
+  .split('\n')
+  .map(x => x.split(' ').map(x => +x));
 let n, k;
 let d;
 let order;
 let w;
-let ans = "";
+let ans = '';
 let type = 1;
 let cnt;
 for (let i = 1; i < input.length; i++) {

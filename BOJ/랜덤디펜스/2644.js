@@ -1,9 +1,9 @@
-const input = require("fs")
-  .readFileSync("/dev/stdin")
+const input = require('fs')
+  .readFileSync('/dev/stdin')
   .toString()
   .trim()
-  .split("\n")
-  .map((x) => x.split(" ").map(Number));
+  .split('\n')
+  .map(x => x.split(' ').map(Number));
 const n = input[0][0];
 const [u, v] = input[1];
 const p = Array(n + 1).fill(0);

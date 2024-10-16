@@ -1,9 +1,9 @@
-const input = require("fs")
-  .readFileSync("/dev/stdin")
+const input = require('fs')
+  .readFileSync('/dev/stdin')
   .toString()
   .trim()
-  .split("\n")
-  .map((line) => line.split(" ").map(Number));
+  .split('\n')
+  .map(line => line.split(' ').map(Number));
 
 const arrA = input[1];
 const arrB = input[2];
@@ -20,4 +20,4 @@ for (const a of arrA) {
 elements.sort((a, b) => a - b);
 
 console.log(answer);
-console.log(elements.join(" "));
+console.log(elements.join(' '));

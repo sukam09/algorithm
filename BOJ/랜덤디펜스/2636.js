@@ -51,19 +51,15 @@ const solve = () => {
   }
 };
 
-const input = require("fs")
-  .readFileSync("/dev/stdin")
-  .toString()
-  .trim()
-  .split("\n");
-const [n, m] = input[0].split(" ").map(Number);
-const board = input.slice(1).map((x) => x.split(" ").map(Number));
+const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
+const [n, m] = input[0].split(' ').map(Number);
+const board = input.slice(1).map(x => x.split(' ').map(Number));
 const dx = [1, 0, -1, 0];
 const dy = [0, 1, 0, -1];
 const OOB = (x, y) => x < 0 || x >= n || y < 0 || y >= m;
 let cnt = 0;
-board.forEach((x) => {
-  cnt += x.filter((y) => y === 1).length;
+board.forEach(x => {
+  cnt += x.filter(y => y === 1).length;
 });
 let ans1 = 0;
 let ans2 = cnt;

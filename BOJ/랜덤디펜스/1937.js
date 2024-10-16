@@ -19,13 +19,9 @@ const dfs = (x, y) => {
   return dp[x][y];
 };
 
-const input = require("fs")
-  .readFileSync("/dev/stdin")
-  .toString()
-  .trim()
-  .split("\n");
+const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
 const n = Number(input[0]);
-const board = input.slice(1).map((x) => x.split(" ").map(Number));
+const board = input.slice(1).map(x => x.split(' ').map(Number));
 const dp = [...Array(n)].map(() => Array(n).fill(0));
 let ans = 0;
 for (let i = 0; i < n; i++) {

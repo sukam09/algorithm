@@ -1,4 +1,4 @@
-const find = (x) => {
+const find = x => {
   if (p[x] < 0) return x;
   return (p[x] = find(p[x]));
 };
@@ -20,12 +20,12 @@ const isDiffGroup = (u, v) => {
   return true;
 };
 
-const input = require("fs")
-  .readFileSync("/dev/stdin")
+const input = require('fs')
+  .readFileSync('/dev/stdin')
   .toString()
   .trim()
-  .split("\n")
-  .map((x) => x.split(" ").map(Number));
+  .split('\n')
+  .map(x => x.split(' ').map(Number));
 console.log(input);
 const [n, m] = [input[0][0], input[1][0]];
 const edge = input.slice(2);

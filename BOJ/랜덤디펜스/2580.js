@@ -1,6 +1,6 @@
-const dfs = (idx) => {
+const dfs = idx => {
   if (idx === cnt) {
-    input.forEach((x) => (ans += `${x.join(" ")}\n`));
+    input.forEach(x => (ans += `${x.join(' ')}\n`));
     console.log(ans);
     process.exit();
   }
@@ -22,12 +22,12 @@ const dfs = (idx) => {
   }
 };
 
-const input = require("fs")
-  .readFileSync("/dev/stdin")
+const input = require('fs')
+  .readFileSync('/dev/stdin')
   .toString()
   .trim()
-  .split("\n")
-  .map((x) => x.split(" ").map(Number));
+  .split('\n')
+  .map(x => x.split(' ').map(Number));
 const a1 = Array(9)
   .fill()
   .map(() => Array(10).fill(false));
@@ -53,5 +53,5 @@ for (let i = 0; i < 9; i++) {
     a3[section][cur] = true;
   }
 }
-let ans = "";
+let ans = '';
 dfs(0);

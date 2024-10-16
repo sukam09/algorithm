@@ -48,7 +48,7 @@ class MinHeap {
   }
 }
 
-const dijkstra = (st) => {
+const dijkstra = st => {
   dist[st] = 0;
   const pq = new MinHeap();
   pq.push([dist[st], st]);
@@ -94,14 +94,11 @@ const solve = () => {
   ans += `Problem ${tc}: ${dist[n * n - 1] + board[0][0]}\n`;
 };
 
-const input = require("fs")
-  .readFileSync("/dev/stdin", "utf8")
-  .trim()
-  .split("\n");
+const input = require('fs').readFileSync('/dev/stdin', 'utf8').trim().split('\n');
 let chk = false;
 let n;
 let board;
-let ans = "";
+let ans = '';
 let tc = 0;
 let cnt;
 let dist;
@@ -116,7 +113,7 @@ for (let i = 0; i < input.length; i++) {
     chk = true;
     cnt = 0;
   } else {
-    board.push(input[i].split(" ").map(Number));
+    board.push(input[i].split(' ').map(Number));
     if (++cnt === n) {
       chk = false;
     }

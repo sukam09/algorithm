@@ -1,10 +1,6 @@
-const input = require("fs")
-  .readFileSync("/dev/stdin")
-  .toString()
-  .trim()
-  .split("\n");
+const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
 
-const n = input[0].split(" ").map(Number)[0];
+const n = input[0].split(' ').map(Number)[0];
 const max = n * 500 + 5;
 const next = Array(max);
 for (let i = 0; i < max; i++) {
@@ -14,9 +10,9 @@ const check = Array(max).fill(false);
 const root = 1;
 let unused = 2;
 
-const charToInt = (char) => char.charCodeAt(0) - "a".charCodeAt(0);
+const charToInt = char => char.charCodeAt(0) - 'a'.charCodeAt(0);
 
-const insert = (string) => {
+const insert = string => {
   let cur = root;
   for (const char of string) {
     if (next[cur][charToInt(char)] === -1) {
@@ -27,7 +23,7 @@ const insert = (string) => {
   check[cur] = true;
 };
 
-const find = (string) => {
+const find = string => {
   let cur = root;
   for (const char of string) {
     if (next[cur][charToInt(char)] === -1) {

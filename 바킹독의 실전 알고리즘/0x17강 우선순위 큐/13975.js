@@ -28,10 +28,7 @@ class MinHeap {
       const leftChild = 2 * index;
       const rightChild = 2 * index + 1;
       let minChild = leftChild;
-      if (
-        rightChild <= this.size &&
-        this.data[rightChild] < this.data[leftChild]
-      ) {
+      if (rightChild <= this.size && this.data[rightChild] < this.data[leftChild]) {
         minChild = rightChild;
       }
       if (this.data[index] <= this.data[minChild]) {
@@ -51,7 +48,7 @@ class MinHeap {
   }
 }
 
-const solution = (files) => {
+const solution = files => {
   const heap = new MinHeap();
   let result = 0;
   for (const file of files) {
@@ -68,18 +65,18 @@ const solution = (files) => {
   return result;
 };
 
-const input = require("fs")
-  .readFileSync("/dev/stdin")
+const input = require('fs')
+  .readFileSync('/dev/stdin')
   .toString()
   .trim()
-  .split("\n")
-  .map((line) => line.split(" ").map(Number));
+  .split('\n')
+  .map(line => line.split(' ').map(Number));
 
 const n = input[0][0];
-let answer = "";
+let answer = '';
 for (let i = 1; i <= n; i++) {
   const files = input[i * 2];
-  answer += solution(files) + "\n";
+  answer += solution(files) + '\n';
 }
 
 console.log(answer);

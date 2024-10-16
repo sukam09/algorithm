@@ -26,12 +26,12 @@ class Queue {
   }
 }
 
-const input = require("fs")
-  .readFileSync("/dev/stdin")
+const input = require('fs')
+  .readFileSync('/dev/stdin')
   .toString()
   .trim()
-  .split("\n")
-  .map((line) => line.split(" ").map(Number));
+  .split('\n')
+  .map(line => line.split(' ').map(Number));
 
 const [n, m] = input[0];
 const graph = [];
@@ -62,5 +62,5 @@ while (!queue.isEmpty()) {
 
 const maxval = Math.max(...dists);
 const index = dists.indexOf(maxval);
-const count = dists.filter((dist) => dist === maxval).length;
+const count = dists.filter(dist => dist === maxval).length;
 console.log(index, maxval, count);

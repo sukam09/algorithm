@@ -25,10 +25,7 @@ class Heap {
       const leftChild = 2 * index;
       const rightChild = 2 * index + 1;
       let minChild = leftChild;
-      if (
-        rightChild <= this.size &&
-        this.heap[rightChild][0] < this.heap[leftChild][0]
-      ) {
+      if (rightChild <= this.size && this.heap[rightChild][0] < this.heap[leftChild][0]) {
         minChild = rightChild;
       }
       if (this.heap[index][0] <= this.heap[minChild][0]) {
@@ -68,12 +65,8 @@ const dijkstra = () => {
   }
 };
 
-const input = require("fs")
-  .readFileSync("/dev/stdin")
-  .toString()
-  .trim()
-  .split("\n");
-const [v, e] = input[0].split(" ").map(Number);
+const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
+const [v, e] = input[0].split(' ').map(Number);
 const k = Number(input[1]);
 const dists = Array(v + 1).fill(Infinity);
 
@@ -83,14 +76,14 @@ for (let i = 0; i < v + 1; i++) {
 }
 
 for (let i = 2; i < 2 + e; i++) {
-  const [start, end, dist] = input[i].split(" ").map(Number);
+  const [start, end, dist] = input[i].split(' ').map(Number);
   graph[start].push([dist, end]);
 }
 
 dijkstra();
-let answer = "";
+let answer = '';
 for (let i = 1; i <= v; i++) {
-  answer += dists[i] === Infinity ? "INF\n" : `${dists[i]}\n`;
+  answer += dists[i] === Infinity ? 'INF\n' : `${dists[i]}\n`;
 }
 
 console.log(answer);

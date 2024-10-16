@@ -1,8 +1,4 @@
-const input = require("fs")
-  .readFileSync("/dev/stdin")
-  .toString()
-  .trim()
-  .split("\n");
+const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
 
 const n = parseInt(input[0]);
 const graph = Array(n);
@@ -11,7 +7,7 @@ for (let i = 0; i < n; i++) {
 }
 
 for (let i = 0; i < n; i++) {
-  const line = input[i + 1].split(" ").map(Number);
+  const line = input[i + 1].split(' ').map(Number);
   for (let j = 0; j < n; j++) {
     if (line[j] === 1) {
       graph[i].push(j);
@@ -19,7 +15,7 @@ for (let i = 0; i < n; i++) {
   }
 }
 
-let answer = "";
+let answer = '';
 
 for (let i = 0; i < n; i++) {
   const stack = [i];
@@ -35,9 +31,9 @@ for (let i = 0; i < n; i++) {
     }
   }
   for (let j = 0; j < n; j++) {
-    answer += visited[j] + " ";
+    answer += visited[j] + ' ';
   }
-  answer += "\n";
+  answer += '\n';
 }
 
 console.log(answer);

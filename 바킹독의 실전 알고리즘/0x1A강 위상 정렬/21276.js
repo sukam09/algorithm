@@ -18,13 +18,9 @@ class Queue {
   }
 }
 
-const input = require("fs")
-  .readFileSync("/dev/stdin")
-  .toString()
-  .trim()
-  .split("\n");
+const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
 
-const people = input[1].split(" ").sort();
+const people = input[1].split(' ').sort();
 const graph = {};
 const indegrees = {};
 const children = {};
@@ -36,7 +32,7 @@ for (const person of people) {
 }
 
 for (let i = 3; i < input.length; i++) {
-  const [a, b] = input[i].split(" ");
+  const [a, b] = input[i].split(' ');
   graph[b].push(a);
   indegrees[a]++;
 }
@@ -61,12 +57,10 @@ while (!queue.isEmpty()) {
   }
 }
 
-let answer = "";
+let answer = '';
 answer += `${roots.length}\n`;
-answer += `${roots.join(" ")}\n`;
+answer += `${roots.join(' ')}\n`;
 for (const person of people) {
-  answer += `${person} ${children[person].length} ${children[person]
-    .sort()
-    .join(" ")}\n`;
+  answer += `${person} ${children[person].length} ${children[person].sort().join(' ')}\n`;
 }
 console.log(answer);

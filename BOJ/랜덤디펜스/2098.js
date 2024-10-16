@@ -21,11 +21,8 @@ const dfs = (cur, vis) => {
   return dp[cur][vis];
 };
 
-const input = require("fs")
-  .readFileSync("/dev/stdin", "utf8")
-  .trim()
-  .split("\n");
+const input = require('fs').readFileSync('/dev/stdin', 'utf8').trim().split('\n');
 const n = Number(input[0]);
-const w = input.slice(1).map((x) => x.split(" ").map(Number));
+const w = input.slice(1).map(x => x.split(' ').map(Number));
 const dp = [...Array(n)].map(() => Array(1 << n).fill(0));
 console.log(dfs(0, 1));

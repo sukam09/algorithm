@@ -5,7 +5,7 @@ function solution(survey, choices) {
   for (let i = 0; i < n; i++) {
     const sv = survey[i];
     const c = choices[i];
-    
+
     if (c <= 3) {
       map.set(sv[0], (map.get(sv[0]) || 0) + (4 - c));
     } else if (c >= 5) {

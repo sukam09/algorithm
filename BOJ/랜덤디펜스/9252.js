@@ -1,10 +1,7 @@
-const input = require("fs")
-  .readFileSync("/dev/stdin", "utf8")
-  .trim()
-  .split("\n");
+const input = require('fs').readFileSync('/dev/stdin', 'utf8').trim().split('\n');
 const [n, m] = [input[0].length, input[1].length];
 const [a, b] = [input[0], input[1]];
-const dp = [...Array(n + 1)].map(() => Array(m + 1).fill(""));
+const dp = [...Array(n + 1)].map(() => Array(m + 1).fill(''));
 for (let i = 1; i <= n; i++) {
   for (let j = 1; j <= m; j++) {
     if (a[i - 1] === b[j - 1]) {
@@ -17,6 +14,6 @@ for (let i = 1; i <= n; i++) {
   }
 }
 console.log(dp[n][m].length);
-if (dp[n][m] !== "") {
+if (dp[n][m] !== '') {
   console.log(dp[n][m]);
 }

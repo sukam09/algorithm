@@ -12,7 +12,7 @@ const solve = () => {
   ans = Math.max(ans, sum);
 };
 
-const dfs = (k) => {
+const dfs = k => {
   if (k === cnt) {
     solve();
     return;
@@ -28,11 +28,7 @@ const dfs = (k) => {
   }
 };
 
-const input = require("fs")
-  .readFileSync("/dev/stdin")
-  .toString()
-  .trim()
-  .split("\n");
+const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
 const n = Number(input[0]);
 const arr = input.slice(1);
 const map = new Map();

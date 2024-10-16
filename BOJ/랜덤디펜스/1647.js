@@ -1,4 +1,4 @@
-const find = (x) => {
+const find = x => {
   if (p[x] < 0) {
     return x;
   }
@@ -22,15 +22,11 @@ const merge = (u, v) => {
   return false;
 };
 
-const input = require("fs")
-  .readFileSync("/dev/stdin")
-  .toString()
-  .trim()
-  .split("\n");
-const n = input[0].split(" ").map(Number)[0];
+const input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
+const n = input[0].split(' ').map(Number)[0];
 const edge = [];
 for (let i = 1; i < input.length; i++) {
-  const [a, b, c] = input[i].split(" ").map(Number);
+  const [a, b, c] = input[i].split(' ').map(Number);
   edge.push([c, a, b]);
 }
 edge.sort((a, b) => a[0] - b[0]);

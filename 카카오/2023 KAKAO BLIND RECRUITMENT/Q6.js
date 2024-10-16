@@ -1,6 +1,9 @@
 function solution(n, m, x, y, r, c, k) {
   // 1-index to 0-index
-  x--; y--; r--; c--;
+  x--;
+  y--;
+  r--;
+  c--;
 
   // 사전 순: d, l, r, u
   const dx = [1, 0, 0, -1];

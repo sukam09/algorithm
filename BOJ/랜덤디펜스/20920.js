@@ -38,6 +38,6 @@ arr2.sort((a, b) => {
       }
     }
   }
-})
+});
 
 console.log(arr2.join('\n'));

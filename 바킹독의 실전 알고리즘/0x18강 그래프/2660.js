@@ -18,8 +18,8 @@ class Queue {
   }
 }
 
-const [n, ...input] = require("fs")
-  .readFileSync("/dev/stdin")
+const [n, ...input] = require('fs')
+  .readFileSync('/dev/stdin')
   .toString()
   .trim()
   .split(/\s/)
@@ -58,7 +58,7 @@ for (let i = 1; i <= n; i++) {
 
 const presidentScore = Math.min(...scores);
 let presidentNum = 0;
-let presidentCandidate = "";
+let presidentCandidate = '';
 
 for (let i = 1; i <= n; i++) {
   if (scores[i] === presidentScore) {
